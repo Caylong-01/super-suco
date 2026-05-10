@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Suco | Melhor Suco de Açaí do Brasil</title>
+    <meta name="description" content="Energético & Afrodisíaco. O açaí mais autêntico de João Pessoa e Campina Grande. Peça agora!">
+    
+    <!-- Pré-conexão de fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=1.1">
+</head>
+<body>
+
+    <!-- Overlay e Modal de Seleção de Unidade -->
+    <div id="modalOverlay" class="modal-overlay"></div>
+    <div id="unitModal" class="unit-modal">
+        <div class="modal-header">
+            <h3>Escolha sua Unidade</h3>
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+        </div>
+        <p>De onde você quer pedir?</p>
+        <div class="units-grid">
+            <a href="https://wa.me/5583999990001" target="_blank" class="unit-btn">📍 Lagoa</a>
+            <a href="https://wa.me/5583999990002" target="_blank" class="unit-btn">📍 Mangabeira</a>
+            <a href="https://wa.me/5583999990003" target="_blank" class="unit-btn">📍 Manaíra</a>
+            <a href="https://wa.me/5583999990004" target="_blank" class="unit-btn">📍 Campina Grande</a>
+        </div>
+    </div>
+
+    <!-- Barra de Navegação -->
+    <nav class="navbar">
+        <a href="#" class="logo-img"><img src="logo.png" alt="Super Suco Logotipo"></a>
+        <div class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#sobre-nos">Sobre Nós</a>
+            <a href="#cardapio">Cardápio</a>
+            <a href="#unidades">Localização</a>
+        </div>
+        <button class="cta-nav cta-nav-primary open-modal-btn">Pedir Agora</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-section">
+        <div class="hero-content">
+            <h2 class="tagline">Energético & Afrodisíaco</h2>
+            <h1 class="headline">A energia que a rua pede. O sabor que você vicia.</h1>
+            <p class="subheadline">O açaí mais cremoso e energético da cidade, entregue trincando na sua porta em minutos.</p>
+            <div class="hero-actions">
+                <button class="cta-primary open-modal-btn">Fazer Pedido ⚡</button>
+                <a href="#cardapio" class="cta-secondary ghost-btn">Ver Cardápio ➔</a>
+            </div>
+            <div class="social-proof">⭐⭐⭐⭐⭐ (Mais de 5.000 pedidos entregues com energia!)</div>
+        </div>
+        
+        <!-- Imagem Estática do Ativo 3D -->
+        <div class="hero-3d-asset">
+            <img src="hero-image-final.png" alt="Açaí Super Suco Zero Gravidade">
+            <div class="acai-glow"></div>
+        </div>
+    </header>
+
+    <!-- Seção: Sobre Nós -->
+    <section id="sobre-nos" class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>A energia da rua, direto pro seu copo.</h2>
+                <p>A Super Suco nasceu para entregar mais do que apenas açaí. Somos a energia pura da Paraíba. Nossa missão é oferecer um produto <strong>Energético & Afrodisíaco</strong> com a autenticidade que só quem é da rua conhece.</p>
+                <p>O melhor suco de açaí do Brasil não se faz em laboratório, se faz com paixão, movimento e os melhores ingredientes da região.</p>
+            </div>
+            <div class="about-image">
+                <img src="about-image.png" alt="Açaí Super Suco Lifestyle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Cardápio Visual -->
+    <section id="cardapio" class="menu-section">
+        <div class="section-header">
+            <h2>Nosso Cardápio</h2>
+            <p>Energia pura, direto da natureza para o seu dia.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-img-container">
+                    <img src="https://picsum.photos/seed/acai1/500/500" alt="Açaí Tradicional">
+                </div>
+                <div class="menu-info">
+                    <h3>Açaí Tradicional</h3>
+                    <p>O clássico inconfundível com granola e banana.</p>
+                    <span class="price">A partir de R$ 18,00</span>
+                    <button class="cta-nav open-modal-btn">Pedir Agora</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-img-container">
+                    <img src="https://picsum.photos/seed/acai2/500/500" alt="Açaí Energético">
+                </div>
+                <div class="menu-info">
+                    <h3>Açaí Energético</h3>
+                    <p>Turbinado com guaraná em pó, amendoim e mel.</p>
+                    <span class="price">A partir de R$ 22,00</span>
+                    <button class="cta-nav open-modal-btn">Pedir Agora</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-img-container">
+                    <img src="https://picsum.photos/seed/acai3/500/500" alt="Açaí Afrodisíaco">
+                </div>
+                <div class="menu-info">
+                    <h3>Açaí Afrodisíaco</h3>
+                    <p>Com morangos frescos, leite condensado e paçoca.</p>
+                    <span class="price">A partir de R$ 25,00</span>
+                    <button class="cta-nav open-modal-btn">Pedir Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Unidades -->
+    <section id="unidades" class="units-section">
+        <div class="section-header">
+            <h2>Onde nos encontrar</h2>
+            <p>4 unidades espalhadas para garantir que a energia chegue até você.</p>
+        </div>
+        <div class="locations-grid">
+            <a href="https://wa.me/5583999990001" target="_blank" class="location-card">
+                <h3>📍 Lagoa</h3>
+                <p>João Pessoa - PB</p>
+                <span class="card-link">Pedir desta unidade &rarr;</span>
+            </a>
+            <a href="https://wa.me/5583999990002" target="_blank" class="location-card">
+                <h3>📍 Mangabeira</h3>
+                <p>João Pessoa - PB</p>
+                <span class="card-link">Pedir desta unidade &rarr;</span>
+            </a>
+            <a href="https://wa.me/5583999990003" target="_blank" class="location-card">
+                <h3>📍 Manaíra</h3>
+                <p>João Pessoa - PB</p>
+                <span class="card-link">Pedir desta unidade &rarr;</span>
+            </a>
+            <a href="https://wa.me/5583999990004" target="_blank" class="location-card">
+                <h3>📍 Campina Grande</h3>
+                <p>Centro - PB</p>
+                <span class="card-link">Pedir desta unidade &rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Sticky CTA (Mobile) -->
+    <button class="sticky-cta open-modal-btn">Fazer Pedido ⚡</button>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="logo">Super <span>Suco</span></div>
+            <p>Energético & Afrodisíaco. O melhor suco de açaí do Brasil.</p>
+            <div class="social-links">
+                <a href="#">Instagram @supersucooficial</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Super Suco. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
