@@ -244,9 +244,10 @@ button:focus-visible {
     letter-spacing: clamp(1px, 0.5vw, 3px); /* FIX: letter-spacing responsivo */
     margin-bottom: 1rem;
     font-weight: 700;
-    white-space: nowrap; /* Garante que fica em 1 linha */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Removido nowrap para evitar truncamento, permitindo quebra de linha */
+    display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 .headline {
@@ -908,6 +909,76 @@ button:focus-visible {
     transform: translateX(-50%) scale(0.98);
 }
 
+/* Nova Sticky Cart Bar Inferior (Mobile) */
+.sticky-cart-bar {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: var(--color-bg-darker);
+    border: 1px solid rgba(202, 138, 4, 0.4);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    z-index: 990;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition-smooth);
+}
+
+.sticky-cart-bar.active {
+    display: flex;
+    animation: slideUp 0.4s ease forwards;
+}
+
+.sticky-cart-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-cart-qty {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.sticky-cart-total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+}
+
+.sticky-cart-btn {
+    background: var(--color-accent-gold);
+    color: #000;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sticky-cart-btn:active {
+    background: var(--color-accent-hover);
+    transform: scale(0.95);
+}
+
+/* Controle de exibição (Mobile) */
+body.has-cart-items #stickyCtaDefault {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    body.has-cart-items .nav-actions .cta-nav-primary {
+        display: none !important;
+    }
+}
+
 @media (max-width: 992px) {
     .headline { font-size: 3rem; }
     .hero-3d-asset { width: 50vw; right: -5%; }
@@ -1031,14 +1102,15 @@ button:focus-visible {
     /* FIX: tagline mobile - garantir que não corte */
     /* FIX: tagline mobile - maior e mais legível */
     .tagline {
-        font-size: 1.1rem; /* Aumentado para leitura perfeita */
-        letter-spacing: 4px;
+        font-size: clamp(10px, 4vw, 1.1rem); /* Mínimo 10px */
+        letter-spacing: 3px;
         margin-bottom: 1rem;
         display: block;
         width: 100%;
         text-align: center;
         color: var(--color-accent-gold);
         font-weight: 700;
+        white-space: normal; /* Força quebra de linha se necessário */
     }
 
     .hero-content {

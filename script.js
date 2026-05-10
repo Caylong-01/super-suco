@@ -83,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+
+            // Se o botão da navbar foi transformado em carrinho, abre o carrinho
+            if (btn.dataset.opensCart === "true") {
+                openCartModal();
+                return;
+            }
+
             pendingCart = null; // pedido direto, sem carrinho
             openUnitModal();
         });
@@ -222,8 +229,11 @@ document.addEventListener('DOMContentLoaded', () => {
         body.style.overflow = '';
     };
 
+    const openStickyCartBtn = document.getElementById('openStickyCartBtn');
+
     if (openCartBtn) openCartBtn.addEventListener('click', openCartModal);
     if (closeCartBtn) closeCartBtn.addEventListener('click', closeCartModal);
+    if (openStickyCartBtn) openStickyCartBtn.addEventListener('click', openCartModal);
 
     // Calcular e atualizar o total exibido
     const updateCartUI = () => {
@@ -272,6 +282,38 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mensagem vazia
         if (cartEmptyMsg) {
             cartEmptyMsg.classList.toggle('visible', totalQty === 0);
+        }
+
+        // --- INTEGRAÇÃO DA STICKY BAR (MOBILE) E HEADER (DESKTOP) ---
+        const navCta = document.querySelector('.navbar .cta-nav-primary');
+        const stickyCartBar = document.getElementById('stickyCartBar');
+        
+        if (totalQty > 0) {
+            document.body.classList.add('has-cart-items');
+            
+            // Mobile: Atualizar Sticky Bar
+            if (stickyCartBar) {
+                stickyCartBar.classList.add('active');
+                document.getElementById('stickyCartQty').textContent = totalQty + (totalQty === 1 ? ' item' : ' itens');
+                document.getElementById('stickyCartTotal').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            }
+
+            // Desktop: Atualizar botão do header
+            if (navCta) {
+                navCta.innerHTML = `🛒 ${totalQty} | R$ ${total.toFixed(2).replace('.', ',')}`;
+                navCta.dataset.opensCart = "true";
+            }
+        } else {
+            document.body.classList.remove('has-cart-items');
+            
+            // Mobile: Esconder Sticky Bar
+            if (stickyCartBar) stickyCartBar.classList.remove('active');
+
+            // Desktop: Voltar botão ao normal
+            if (navCta) {
+                navCta.innerHTML = 'Pedir Agora';
+                navCta.dataset.opensCart = "false";
+            }
         }
 
         // Salvar na localStorage
