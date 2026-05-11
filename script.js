@@ -185,7 +185,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     eventTimeout: 2000
                 });
             }
+
+            // Desbloqueia o botão após 3 segundos para caso o usuário volte para a página
+            setTimeout(() => {
+                if (link) {
+                    link.dataset.isSubmitting = 'false';
+                    link.style.opacity = '1';
+                    link.style.pointerEvents = 'auto';
+                }
+            }, 3000);
         });
+    });
+
+    // Desbloqueio global de segurança ao voltar para a página
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            document.querySelectorAll('.unit-btn').forEach(link => {
+                link.dataset.isSubmitting = 'false';
+                link.style.opacity = '1';
+                link.style.pointerEvents = 'auto';
+            });
+        }
     });
 
 
@@ -300,7 +320,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Desktop: Atualizar botão do header
             if (navCta) {
-                navCta.innerHTML = `🛒 ${totalQty} | R$ ${total.toFixed(2).replace('.', ',')}`;
+                const itemText = totalQty === 1 ? 'item' : 'itens';
+                navCta.innerHTML = `${totalQty} ${itemText} | R$ ${total.toFixed(2).replace('.', ',')}`;
                 navCta.dataset.opensCart = "true";
             }
         } else {

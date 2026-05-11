@@ -909,85 +909,111 @@ button:focus-visible {
     transform: translateX(-50%) scale(0.98);
 }
 
-/* Controle da Sticky Cart Bar */
-.sticky-cart-bar {
-    display: none !important; /* Garantir que NUNCA apareça no desktop */
-}
-
+/* Controle da Sticky Cart Bar Global (Mobile & Desktop) */
 body.has-cart-items #stickyCtaDefault {
     display: none !important;
 }
 
+/* Adiciona margem global para a barra não cobrir conteúdo no rodapé */
+body.has-cart-items {
+    padding-bottom: 90px; 
+}
+
+/* Estilo da barra sticky global */
+.sticky-cart-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: none;
+    border-top: 1px solid rgba(202, 138, 4, 0.3);
+    color: #fff;
+    padding: 0.8rem 5%;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
+    z-index: 990;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+    .sticky-cart-bar {
+        justify-content: center;
+        gap: 3rem;
+        padding: 1rem;
+    }
+}
+
+.sticky-cart-bar.active {
+    display: flex !important;
+    animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.sticky-cart-info {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 769px) {
+    .sticky-cart-info {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.sticky-cart-qty {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+@media (min-width: 769px) {
+    .sticky-cart-qty {
+        font-size: 1rem;
+    }
+}
+
+.sticky-cart-total {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+}
+
+.sticky-cart-btn {
+    background: var(--color-accent-gold);
+    color: #000;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.sticky-cart-btn:active {
+    background: var(--color-accent-hover);
+    transform: scale(0.95);
+}
+
+/* Oculta o CTA normal do header apenas no mobile (já que no desktop ele vira botão do carrinho) */
 @media (max-width: 768px) {
-    /* No mobile, oculta o CTA do header quando o carrinho tem itens */
     body.has-cart-items .nav-actions .cta-nav-primary {
         display: none !important;
-    }
-
-    /* Adiciona margem para a barra não cobrir conteúdo */
-    body.has-cart-items {
-        padding-bottom: 90px; 
-    }
-
-    /* Estilo da barra sticky (somente mobile) */
-    .sticky-cart-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        max-width: none;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: none;
-        border-top: 1px solid rgba(202, 138, 4, 0.3);
-        color: #fff;
-        padding: 0.8rem 5%;
-        border-radius: 0;
-        box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
-        z-index: 990;
-        align-items: center;
-        justify-content: space-between;
-        transition: var(--transition-smooth);
-    }
-
-    .sticky-cart-bar.active {
-        display: flex !important;
-        animation: slideUp 0.4s ease forwards;
-    }
-
-    .sticky-cart-info {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sticky-cart-qty {
-        font-size: 0.85rem;
-        color: var(--color-text-muted);
-    }
-
-    .sticky-cart-total {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: var(--color-accent-gold);
-    }
-
-    .sticky-cart-btn {
-        background: var(--color-accent-gold);
-        color: #000;
-        border: none;
-        padding: 0.7rem 1.4rem;
-        border-radius: 50px;
-        font-size: 0.95rem;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background 0.2s, transform 0.2s;
-    }
-
-    .sticky-cart-btn:active {
-        background: var(--color-accent-hover);
-        transform: scale(0.95);
     }
 }
 
