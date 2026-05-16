@@ -28,6 +28,9 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     
+    <!-- Core Web Vitals: LCP Preload -->
+    <link rel="preload" href="hero-image-final.png" as="image">
+    
     <!-- Pré-conexão de fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,14 +160,14 @@
         <div class="hero-content">
             <h2 class="tagline">Energético & Afrodisíaco</h2>
             <h1 class="headline">A energia que a rua pede. O sabor que você vicia.</h1>
-            <p class="subheadline">O açaí mais cremoso e energético da cidade, entregue trincando na sua porta em minutos.</p>
+            <p class="subheadline">Esqueça açaí com gosto de gelo. Peça o creme mais autêntico e energético da cidade, entregue trincando na sua porta em menos de 30 minutos.</p>
             <div class="hero-actions">
                 <button class="cta-primary open-modal-btn">Fazer Pedido</button>
                 <a href="#cardapio" class="cta-secondary ghost-btn">Ver Cardápio ➔</a>
             </div>
             <div class="social-proof">
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                <span><strong id="order-counter">5.000</strong>+ pedidos com energia!</span>
+                <span><strong id="order-counter">5.347</strong> pedidos entregues com energia!</span>
             </div>
             <div class="trust-badges">
                 <span class="trust-badge">
@@ -184,7 +187,7 @@
         
         <!-- Imagem Estática do Ativo 3D -->
         <div class="hero-3d-asset">
-            <img src="hero-image-final.png" alt="Açaí Super Suco Zero Gravidade" width="500" height="500">
+            <img src="hero-image-final.png" alt="Açaí Super Suco Zero Gravidade" width="500" height="500" fetchpriority="high">
             <div class="acai-glow"></div>
         </div>
     </header>
@@ -265,22 +268,22 @@
             <a href="https://wa.me/5583999990001" target="_blank" class="location-card">
                 <h3>Lagoa</h3>
                 <p>João Pessoa - PB</p>
-                <span class="card-link">Pedir desta unidade &rarr;</span>
+                <span class="card-link">Pedir via WhatsApp &rarr;</span>
             </a>
             <a href="https://wa.me/5583999990002" target="_blank" class="location-card">
                 <h3>Mangabeira</h3>
                 <p>João Pessoa - PB</p>
-                <span class="card-link">Pedir desta unidade &rarr;</span>
+                <span class="card-link">Pedir via WhatsApp &rarr;</span>
             </a>
             <a href="https://wa.me/5583999990003" target="_blank" class="location-card">
                 <h3>Manaíra</h3>
                 <p>João Pessoa - PB</p>
-                <span class="card-link">Pedir desta unidade &rarr;</span>
+                <span class="card-link">Pedir via WhatsApp &rarr;</span>
             </a>
             <a href="https://wa.me/5583999990004" target="_blank" class="location-card">
                 <h3>Campina Grande</h3>
                 <p>Centro - PB</p>
-                <span class="card-link">Pedir desta unidade &rarr;</span>
+                <span class="card-link">Pedir via WhatsApp &rarr;</span>
             </a>
         </div>
     </section>
@@ -311,6 +314,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -391,6 +391,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 cartState[id] = (cartState[id] || 0) + 1;
                 updateCartUI();
 
+                // UX Design Spell: Pop animation no ícone do carrinho
+                if (cartBadge) {
+                    cartBadge.classList.remove('badge-pop');
+                    void cartBadge.offsetWidth; // Força o reflow para reiniciar a animação
+                    cartBadge.classList.add('badge-pop');
+                }
+
                 window.dataLayer.push({
                     event: 'add_to_cart',
                     items: [{
@@ -473,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     const counterEl = document.getElementById('order-counter');
     if (counterEl) {
-        const target = 5000;
+        const target = 5347; // page-cro: número atualizado para prova social quebrada
         const duration = 1800;
         const step = 16;
         const increment = Math.ceil(target / (duration / step));
